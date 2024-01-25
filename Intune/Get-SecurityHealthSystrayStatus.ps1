@@ -3,7 +3,7 @@
 Checks if the SecurityHealthSystray process is running.
 
 .DESCRIPTION
-This function checks if the SecurityHealthSystray process is running on the system. If the process is found, the script exits with a status of 0 (success). If the process is not found, the script exits with a status of 1 (failure).
+This function checks if the SecurityHealthSystray process is running on the system. If the process is found, it outputs a message indicating that the process is running. If the process is not found, it outputs a message indicating that the process is not running.
 
 .PARAMETER None
 This function does not accept any parameters.
@@ -21,9 +21,9 @@ Version: 1.0
 function Check-Process {
     $process = Get-Process -Name SecurityHealthSystray -ErrorAction SilentlyContinue
     if ($process) {
-        exit 0
+        Write-Output "SecurityHealthSystray process is running."
     } else {
-        exit 1
+        Write-Output "SecurityHealthSystray process is not running."
     }
 }
 
