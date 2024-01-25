@@ -6,6 +6,6 @@ $file = "WindowsAdminCenter2311.msi"
 Invoke-WebRequest -uri $uri -OutFile $file
 
 # Install WAC with self signed cert and default port
-msiexec /i .\wac2311.msi /qn /L*v log.txt SME_PORT=6516 SSL_CERTIFICATE_OPTION=generate
+msiexec /i .\$file /qn /L*v log.txt SME_PORT=6516 SSL_CERTIFICATE_OPTION=generate
 
 $ProgressPreference = 'Continue'
