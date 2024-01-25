@@ -3,7 +3,9 @@
 Checks if the SecurityHealthSystray process is running.
 
 .DESCRIPTION
-This function checks if the SecurityHealthSystray process is running on the system. If the process is found, it outputs a message indicating that the process is running. If the process is not found, it outputs a message indicating that the process is not running.
+This function checks if the SecurityHealthSystray process is running on the system. 
+If the process is found, it outputs a message indicating that the process is running. 
+If the process is not found, it outputs a message indicating that the process is not running.
 
 .PARAMETER None
 This function does not accept any parameters.
