@@ -32,8 +32,8 @@ if ($productInfo) {
     $ProductName = $productInfo.Name
     $ProductVersion = $productInfo.Version
     
-    Write-Host "Detected product name: $ProductName"
-    Write-Host "Detected product version: $ProductVersion"
+    Write-Output "Detected product name: $ProductName"
+    Write-Output "Detected product version: $ProductVersion"
 
     # Uninstall the product
     $uninstallResult = (Start-Process msiexec.exe -ArgumentList "/x $ProductCode /qn" -Wait -PassThru).ExitCode
