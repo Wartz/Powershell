@@ -9,7 +9,7 @@ This script removes an MSI application using the provided product code. It detec
 Specifies the product code of the MSI application to uninstall. If not provided, a prompt will ask the user to input the product code string.
 
 .EXAMPLE
-.\Remove-App.ps1 -ProductCode "{9372B279-7E42-4A4B-90B0-D43411B770CD}"
+.\Remove-AppWithProductCode.ps1 -ProductCode "{9372B279-7E42-4A4B-90B0-D43411B770CD}"
 Removes the MSI application with the specified product code.
 
 .NOTES
