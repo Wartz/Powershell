@@ -64,7 +64,7 @@ function Test-AdminPrivilege {
 }
 
 
-Function Assert-LondonAdminLocalUser {
+Function Assert-AdminLocalUser {
     [CmdletBinding()]
     param(
         [string]$username #localuser name
@@ -79,7 +79,7 @@ Function Assert-LondonAdminLocalUser {
     return $result
 }
 
-Function New-LondonAdminLocalUser {
+Function New-AdminLocalUser {
     $params = @{
         Name        = $username
         Password    = ConvertTo-SecureString -String $password
@@ -95,9 +95,9 @@ Function New-LondonAdminLocalUser {
     }
 }
 
-Function Set-LondonAdminLocalUserNeverExpire {
-    if (! (Assert-LondonAdminLocalUser -username $username)) {
-        New-LondonAdminLocalUser
+Function Set-AdminLocalUserNeverExpire {
+    if (! (Assert-AdminLocalUser -username $username)) {
+        New-AdminLocalUser
     }
     else {
         Set-LocalUser -Name $username -PasswordNeverExpires:$true
@@ -105,4 +105,4 @@ Function Set-LondonAdminLocalUserNeverExpire {
 }
 
 Test-AdminPrivilege
-Set-LondonAdminLocalUserNeverExpire
+Set-AdminLocalUserNeverExpire
