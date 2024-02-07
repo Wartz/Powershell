@@ -24,11 +24,11 @@
     Specifies the description for the local user account. Default is "Admin".
 
 .EXAMPLE
-    .\Manage-LondonAdminUser.ps1 -username "Admin" -password "YourPassword" -fullname "Administrator" -description "System Administrator"
+    .\New-LocalAdminAccountNoPasswordExpire.ps1 -username "Admin" -password "YourPassword" -fullname "Administrator" -description "System Administrator"
     # Creates or updates the "Admin" user account with the provided details.
 
 .EXAMPLE
-    .\Manage-LondonAdminUser.ps1
+    .\New-LocalAdminAccountNoPasswordExpire.ps1
     # Uses default parameters to manage the "Admin" user account.
 
 .NOTES
