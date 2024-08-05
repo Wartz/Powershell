@@ -34,7 +34,7 @@ switch ($Action) {
 $keyPath = "HKCU:\Software\iClicker Cloud"
 $valuePairs = @{
     "installed" = 1
-    "optional_software_upste" = 1
+    "optional_software_update" = 1
 }
 
 # Create the key if it doesn't exist
