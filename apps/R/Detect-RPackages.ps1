@@ -1,7 +1,7 @@
 # List of packages to check (single line, comma-separated, in double quotes)
 $packagesToCheck = "tidyverse, infer, broom, skimr, stats, statsr, openintro, resample, knitr"
 
-try {
+function Check-Packages {
     # Base path for R installation
     $rBasePath = "C:\Program Files\R"
 
@@ -12,32 +12,38 @@ try {
                 Select-Object -First 1 -ExpandProperty Name
 
     if (-not $rVersion) {
-        throw "No R installation found in $rBasePath."
+        return $null
     }
 
     # Construct the path to the library
     $libraryPath = Join-Path -Path $rBasePath -ChildPath "$rVersion\library"
 
     if (-not (Test-Path $libraryPath)) {
-        throw "Library path not found at $libraryPath."
+        return $null
     }
 
     # Convert the string to an array
     $packageArray = $packagesToCheck -split ',' | ForEach-Object { $_.Trim() }
 
     # Check each package
+    $installedPackages = @()
     foreach ($package in $packageArray) {
         $packagePath = Join-Path -Path $libraryPath -ChildPath $package
-        if (-not (Test-Path $packagePath)) {
-            throw "Package not found: $package"
+        if (Test-Path $packagePath) {
+            $installedPackages += $package
+        }
+        else {
+            return $null
         }
     }
 
     # If we've made it this far, all packages are present
-    Write-Output "Installed"
-    exit 0  # Exit with zero code if all packages are present
+    return $installedPackages
 }
-catch {
-    Write-Output $_.Exception.Message
-    exit 1  # Exit with non-zero code if any error occurs
+
+$result = Check-Packages
+
+if ($result) {
+    Write-Output "Installed packages: $($result -join ', ')"
 }
+else {}
