@@ -24,7 +24,7 @@ function Uninstall-iClickerCloud {
 function Set-IClickerCloudRegistry {
     [CmdletBinding()]
     param(
-        [string]$KeyPath = "HKCU:\Software\iClicker Cloud",
+        [string]$KeyPath = "HKLM:\Software\iClicker Cloud",
         [hashtable]$ValuePairs = @{
             "installed" = 1
             "optional_software_update" = 1
