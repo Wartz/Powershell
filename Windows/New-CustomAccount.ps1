@@ -18,7 +18,7 @@ The password to be set for the account.
 Creates or modifies an account named "someuser" with the password "some_password".
 
 .NOTES
-File Name      : New-AdminAccount.ps1
+File Name      : New-CustomAccount.ps1
 Prerequisite   : PowerShell V3 or higher
 Copyright      : (c) 2024 Joe Schlimmer, Ithaca College
 License        : MIT License
