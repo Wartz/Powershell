@@ -14,8 +14,8 @@ The username for the account to be created or modified.
 The password to be set for the account.
 
 .EXAMPLE
-.\New-AdminAccount.ps1 -Username "Eclassroom" -Password "Ithaca"
-Creates or modifies an account named "Eclassroom" with the password "Ithaca".
+.\New-AdminAccount.ps1 -Username "someuser" -Password "some_password"
+Creates or modifies an account named "someuser" with the password "some_password".
 
 .NOTES
 File Name      : New-AdminAccount.ps1
