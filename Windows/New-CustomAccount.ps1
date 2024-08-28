@@ -38,7 +38,7 @@ function New-CustomAccount {
     if (Get-LocalUser -Name $Username -ErrorAction SilentlyContinue) {
         Set-CustomPassword
     } else {
-        New-LocalUser -Name $Username -Password $securePassword -PasswordNeverExpires -UserMayNotChangePassword -AccountNeverExpires
+        New-LocalUser -Name $Username -Password $securePassword -PasswordNeverExpires -UserMayChangePassword -AccountNeverExpires
         Add-LocalGroupMember -Group "Administrators" -Member $Username
         Write-Output "Account '$Username' created successfully and added to the Administrators group."
     }
@@ -47,7 +47,7 @@ function New-CustomAccount {
 function Set-CustomPassword {
     $securePassword = ConvertTo-SecureString $Password -AsPlainText -Force
 
-    Set-LocalUser -Name $Username -Password $securePassword -PasswordNeverExpires $true
+    Set-LocalUser -Name $Username -Password $securePassword -PasswordNeverExpires $true -UserMayChangePassword
     Write-Output "Password for account '$Username' has been reset and set to never expire."
 }
 
